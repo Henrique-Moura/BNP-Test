@@ -17,10 +17,6 @@ export default function Home() {
 		alert('confirmado');
 	}
 
-	function handleModalClose() {
-		setModalIsOpen(false);
-	}
-
 	function renderModalContent() {
 		return (
 			<div data-modal-content className={styles['modal-form']}>
@@ -51,7 +47,7 @@ export default function Home() {
 			<Modal
 				isOpen={modalIsOpen}
 				title="Criar novo usuário"
-				onClose={handleModalClose}
+				onClose={() => setModalIsOpen(false)}
 				onConfirm={handleModalConfirm}
 				footer={{ confirmText: 'Criar usuário' }}
 			>

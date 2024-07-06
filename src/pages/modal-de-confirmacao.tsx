@@ -17,15 +17,44 @@ import { Modal } from '@/components/Modal';
 export default function Home() {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
-	return (
-		<>
-			<main className={styles.container}>
-				<button type="button" onClick={() => setModalIsOpen(true)}>
-					Abrir modal de confirmação
-				</button>
-			</main>
+    function renderModalContent() {
+		return (
+            <div data-modal-wrapper className={styles.wrapper}>
+                <div data-modal-container>
+                    <div data-modal-content>
+                        <p>Deseja realizar a confirmação?</p>
+                    </div>
+                </div>
+            </div>
+		);
+	}
 
-			{/* Renderizar modal de confirmação */}
-		</>
-	);
+	function handleModalConfirm() {
+		setModalIsOpen(false);
+		alert('confirmado');
+	}
+
+    return (
+        <>
+            <Head>
+                <title>Modal de Confirmação</title>
+            </Head>
+
+            <main className={styles.container}>
+                <button type="button" onClick={() => setModalIsOpen(true)}>
+                    Abrir modal de confirmação
+                </button>
+            </main>
+
+			<Modal
+				isOpen={modalIsOpen}
+				title="Confirmação"
+				onClose={() => setModalIsOpen(false)}
+				onConfirm={handleModalConfirm}
+				footer={{ confirmText: 'Confirmar' }}
+			>
+				{renderModalContent()}
+			</Modal>
+        </>
+  );
 }
