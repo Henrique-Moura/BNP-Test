@@ -40,10 +40,6 @@ export default function Form() {
 
             const result = await response.json();
             console.log('User created:', result);
-
-
-            console.log('response', response);
-
         } catch (error: any) {
             console.error('Error', error.message)
         }

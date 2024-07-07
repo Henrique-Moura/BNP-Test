@@ -28,11 +28,8 @@ type CicloDeVidaProps = {
 export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
 	const [showCounter, setShowCounter] = useState(false);
 	const [count, setCount] = useState(initialCount);
-    console.log('showCounterFora', showCounter)
 
     useEffect(() => {
-        console.log('count', count);
-        console.log('showCounter', showCounter);
 		if (count >= 10) {
 			setShowCounter(false);
 		}

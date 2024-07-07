@@ -17,8 +17,6 @@ import { IUser, IUserCreate } from '@/types/user.d';
 const users: IUser[] = [];
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-    console.log('CHEGOU');
-
 	if(req.method !== 'POST') {
         return res.status(405).json({ message: 'Method Not Allowed' });
     }
